@@ -5,7 +5,7 @@
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
-# wget https://github.com/NutraXen/NginX/master/bash/install-nginx-custom.sh
+# wget https://github.com/NutraXen/nginx/master/bash/install-nginx-custom.sh
 # sudo bash install-nginx-custom.sh
 
 
@@ -228,7 +228,7 @@ echo ""
 # Clone Default Site from Github / Add it to sites available and enabled.  
 cd /usr/share/
 rm -r /usr/share/nginx/
-git clone https://github.com/NutraXen/NginX.git
+git clone https://github.com/NutraXen/nginx.git
 echo "Cloned Git Repo - NGINX"
 echo ""
 
