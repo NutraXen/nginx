@@ -1,0 +1,9 @@
+Create your Nginx Server configs here.
+- 1 Config per site.
+
+After creating the configuration create a symbolic link to nginx/etc/sites-available & nginx/etc/sites-enabaled
+Sample:
+
+ln -s  /usr/share/nginx/vhosts/www-mysite-com.conf /etc/nginx/sites-available/www-mysite-com.conf
+
+ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-available/www-nutraxen-com.conf
