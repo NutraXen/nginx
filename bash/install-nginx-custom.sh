@@ -5,7 +5,7 @@
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
-# wget https://raw.github.com/villanus/nginx/master/bash/install-nginx-custom.sh
+# wget https://github.com/NutraXen/NginX/master/bash/install-nginx-custom.sh
 # sudo bash install-nginx-custom.sh
 
 
@@ -228,7 +228,7 @@ echo ""
 # Clone Default Site from Github / Add it to sites available and enabled.  
 cd /usr/share/
 rm -r /usr/share/nginx/
-git clone https://github.com/villanus/nginx.git
+git clone https://github.com/NutraXen/NginX.git
 echo "Cloned Git Repo - NGINX"
 echo ""
 
@@ -243,7 +243,7 @@ echo "- Replaced /etc/nginx/nginx.custom.conf with configuration from /usr/share
 echo "-- Nginx now using custom configuraiton from Git Repo"
 echo ""
 echo ""
-cp nginx.custom.conf nginx.custom.villanus
+cp nginx.custom.conf nginx.custom.nutraxen
 
 
 
