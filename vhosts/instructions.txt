@@ -7,9 +7,9 @@ Sample:
 ln -s  /usr/share/nginx/vhosts/www-mysite-com.conf /etc/nginx/sites-enbaled/www-mysite-com.conf
 
 
-ln -s  /usr/share/nginx/vhosts/azure-default-site.conf /etc/nginx/sites-enabled/azure-default-site.conf
+ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-enabled/default.conf
 ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-enabled/www-nutraxen-com.conf
-ln -s  /usr/share/nginx/vhosts/www-decalicious-com.conf /etc/nginx/sites-enbaled/www-decalicious-com.conf
+ln -s  /usr/share/nginx/vhosts/www-decalicious-com.conf /etc/nginx/sites-enabled/www-decalicious-com.conf
 
 
 Restart Nginx
