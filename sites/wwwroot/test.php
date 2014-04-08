@@ -1,3 +1,4 @@
+Hello
 <?php
 phpinfo();
-?><pre><?php var_export($_SERVER)?></pre>
+?>
