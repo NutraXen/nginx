@@ -1,77 +1,20 @@
-Create your Nginx Server configs here.
-- 1 Config per site.
+# Create your Nginx Server configs here (1 per site)
 
-After creating the configuration create a symbolic link to nginx/etc/sites-available & nginx/etc/sites-enabaled
-Sample:
+# After creating the configuration create a symbolic link to sites enabled. 
+  # ln -s  /usr/share/nginx/vhosts/new-site.conf /etc/nginx/sites-enbaled/new-site.conf
 
-ln -s  /usr/share/nginx/vhosts/www-mysite-com.conf /etc/nginx/sites-enbaled/www-mysite-com.conf
-
-
-ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-enabled/default.conf
-ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-enabled/nutraxen.conf
-ln -s  /usr/share/nginx/vhosts/decalicious.conf /etc/nginx/sites-enabled/decalicious.conf
-
-
-Restart Nginx
+  ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-enabled/default.conf
+  ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-enabled/nutraxen.conf
+  ln -s  /usr/share/nginx/vhosts/decalicious.conf /etc/nginx/sites-enabled/decalicious.conf
 
 
 
+# RELOAD NGINX
+  cd /XEN-TOOLS/GIT-PULL-HERE
+  git pull
+  /etc/init.d/nginx reload 
 
-server {
-        listen   80; ## listen for ipv4; this line is default and implied
-        listen   [::]:80 default ipv6only=on; ## listen for ipv6
-
-        root /usr/share/nginx/www;
-        index index.php index.html index.htm;
-
-        # Make site accessible from http://localhost/
-        server_name _;
-
-        location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to index.html
-                try_files $uri $uri/ /index.html;
-                # Uncomment to enable naxsi on this location
-                # include /etc/nginx/naxsi.rules
-        }
-
-        location /doc/ {
-                alias /usr/share/doc/;
-                autoindex on;
-                allow 127.0.0.1;
-                deny all;
-        }
-
-        # Only for nginx-naxsi : process denied requests
-        #location /RequestDenied {
-                # For example, return an error code
-                #return 418;
-        #}
-
-        #error_page 404 /404.html;
-
-        # redirect server error pages to the static page /50x.html
-        #
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-                root /usr/share/nginx/www;
-        }
-
-        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-        #
-        location ~ \.php$ {
-                try_files $uri =404;
-                fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                fastcgi_pass 127.0.0.1:9000;
-                fastcgi_index index.php;
-                include fastcgi_params;
-        }
-
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        location ~ /\.ht {
-                deny all;
-        }
-}
-[...]
+# RESTART NGINX
+  cd /XEN-TOOLS/GIT-PULL-HERE
+  git pull
+  /etc/init.d/nginx restart
