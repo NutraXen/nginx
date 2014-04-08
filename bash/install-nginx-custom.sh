@@ -306,6 +306,10 @@ ln -s /usr/share/nginx /XEN-TOOLS/GIT-PULL-HERE
 
 
 
+# INSTALL PHP
+apt-get -y install php5-fpm
+
+
 
 # TODO CACHES
 
