@@ -6,5 +6,7 @@ Sample:
 
 ln -s  /usr/share/nginx/vhosts/www-mysite-com.conf /etc/nginx/sites-available/www-mysite-com.conf
 ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-available/www-nutraxen-com.conf
+ln -s  /usr/share/nginx/vhosts/www-decalicious-com.conf /etc/nginx/sites-available/www-decalicious-com.conf
+
 
 Restart Nginx

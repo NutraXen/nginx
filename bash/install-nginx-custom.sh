@@ -299,9 +299,13 @@ ln -s  /var/log/nginx/ /XEN-TOOLS/NGINX/_LOGS
 echo "- XEN-TOOLS/NGINX/SSL-CERTS - shortcut: /var/log/nginx/ "
 ln -s  /usr/share/nginx/ssl-certs/ /XEN-TOOLS/NGINX/SSL-CERTS
 ln -s  /usr/share/nginx/ssl-certs/ /etc/nginx/ssl-certs
-
-
 ln -s  /usr/share/nginx/cache /XEN-TOOLS/NGINX/CACHE
+
+# Create a directory (symlink) for quick git pulls to update this script...
+ln -s /usr/share/nginx /XEN-TOOLS/GIT-PULL-HERE
+
+
+
 
 # TODO CACHES
 
