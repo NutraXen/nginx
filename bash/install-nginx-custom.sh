@@ -307,7 +307,7 @@ ln -s /usr/share/nginx /XEN-TOOLS/GIT-PULL-HERE
 
 
 # INSTALL PHP
-apt-get -y install php5-fpm
+apt-get -y install php5-fpm php5-cli
 
 
 
