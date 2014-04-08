@@ -8,8 +8,8 @@ ln -s  /usr/share/nginx/vhosts/www-mysite-com.conf /etc/nginx/sites-enbaled/www-
 
 
 ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-enabled/default.conf
-ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-enabled/www-nutraxen-com.conf
-ln -s  /usr/share/nginx/vhosts/www-decalicious-com.conf /etc/nginx/sites-enabled/www-decalicious-com.conf
+ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-enabled/nutraxen.conf
+ln -s  /usr/share/nginx/vhosts/decalicious.conf /etc/nginx/sites-enabled/decalicious.conf
 
 
 Restart Nginx
