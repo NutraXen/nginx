@@ -1,4 +1,4 @@
-Hello From PHP
+
 <?php
 // set the default timezone to use. Available since PHP 5.1
 date_default_timezone_set('UTC');
@@ -21,10 +21,7 @@ echo date(DATE_RFC2822);
 echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
 ?>
 
-
---------
-
-HELLO AGAIN
+<BR>
 <?php
 phpinfo();
 ?>
