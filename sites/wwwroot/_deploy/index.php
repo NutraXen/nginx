@@ -1,4 +1,5 @@
-
 <?php
-echo shell_exec("git pull");
+shell_exec( 'cd /XEN-TOOLS/GIT-PULL-HERE/ && git reset --hard HEAD && git pull' );
 ?>
+
+Done!
