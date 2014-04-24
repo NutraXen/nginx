@@ -1,0 +1,25 @@
+Create your Nginx Server configs here (1 per site)
+Aftewards add this to our bash script so that it will automatically install this new site upon new installs
+And then run the following command manually.
+
+(Make sure to replace newsite.conf with the name of your new site)
+
+# Symlink for newSite.com
+echo ""
+echo "-- Sites Enabled > NEW-SITENAME.com"
+rm /etc/nginx/sites-available/newsite.conf
+ln -s  /usr/share/nginx/vhosts/newsite.conf /etc/nginx/sites-available/newsite.conf
+rm /etc/nginx/sites-enabled/newsite.conf
+ln -s  /usr/share/nginx/vhosts/newsite.conf /etc/nginx/sites-enabled/newsite.conf
+
+
+
+# RELOAD NGINX
+  cd /XEN-TOOLS/GIT-PULL-HERE
+  git pull
+  /etc/init.d/nginx reload 
+
+# RESTART NGINX
+  cd /XEN-TOOLS/GIT-PULL-HERE
+  git pull
+  /etc/init.d/nginx restart
