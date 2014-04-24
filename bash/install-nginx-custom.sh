@@ -268,7 +268,7 @@ ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-available/nutraxen
 rm /etc/nginx/sites-enabled/nutraxen.conf
 ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-enabled/nutraxen.conf
 
-# Symlink for NutraXen.com
+# Symlink for Decalicious.com
 echo ""
 echo "-- Sites Enabled > DECALICIOUS.com"
 rm /etc/nginx/sites-available/decalicious.conf
