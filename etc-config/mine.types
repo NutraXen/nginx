@@ -56,7 +56,6 @@ types {
     application/octet-stream              bin exe dll;
     application/octet-stream              deb;
     application/octet-stream              dmg;
-    application/octet-stream              eot;
     application/octet-stream              iso img;
     application/octet-stream              msi msp msm;
 
@@ -65,6 +64,11 @@ types {
     audio/ogg                             ogg;
     audio/x-m4a                           m4a;
     audio/x-realaudio                     ra;
+
+    font/ttf                              ttf;
+    font/opentype                         otf;
+    application/font-woff                 woff;
+    application/vnd.ms-fontobject         eot;
 
     video/3gpp                            3gpp 3gp;
     video/mp4                             mp4;

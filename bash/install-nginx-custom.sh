@@ -243,8 +243,13 @@ echo "- Replaced /etc/nginx/nginx.custom.conf with configuration from /usr/share
 echo "-- Nginx now using custom configuraiton from Git Repo"
 echo ""
 echo ""
-cp nginx.custom.conf nginx.custom.nutraxen
+cp nginx.custom.conf nginx.custom.backup-from-install
 
+#GET MIME TYPES
+echo "-- Copying Custom Mime Types (mime.types)  previous version saved as (mime.types.old)"
+cp /etc/nginx/mime.types /etc/nginx/mime.types.old
+rm /etc/nginx/mime.types
+cp /usr/share/nginx/etc-config/mime.types /etc/nginx/mime.types
 
 
 # Symlink the config files for default site...
