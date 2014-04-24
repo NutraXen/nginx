@@ -233,7 +233,7 @@ echo "Cloned Git Repo - NGINX"
 echo ""
 
 
-# Replace Nginx Config with the one from server
+# Replace Nginx Config with the one from our git repo (nginx\etc-config\nginx.custom.conf)
 echo "Replacing Nginx Configuration"
 cd /etc/nginx/
 rm nginx.custom.conf
@@ -252,22 +252,29 @@ rm /etc/nginx/mime.types
 cp /usr/share/nginx/etc-config/mime.types /etc/nginx/mime.types
 
 
-# Symlink the config files for default site...
+# Symlink the config files for default site... (This is the site which serves as CDN for Azure)
 echo ""
-echo "-- Sites Enabled > azure-default-site"
-rm /etc/nginx/sites-available/azure-default-site.conf
-ln -s  /usr/share/nginx/vhosts/azure-default-site.conf /etc/nginx/sites-available/azure-default-site.conf
-rm /etc/nginx/sites-enabled/azure-default-site.conf
-ln -s  /usr/share/nginx/vhosts/azure-default-site.conf /etc/nginx/sites-enabled/azure-default-site.conf
+echo "-- Sites Enabled > DEFAULT WEBSITE"
+rm /etc/nginx/sites-available/default.conf
+ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-available/default.conf
+rm /etc/nginx/sites-enabled/default.conf
+ln -s  /usr/share/nginx/vhosts/default.conf /etc/nginx/sites-enabled/default.conf
 
-# Symlink the config for Maintenence (Temp) Nutraxen Site + Reverse Proxy!
+# Symlink for NutraXen.com
 echo ""
-echo "-- Sites Enabled > www-nutraxe-com"
-rm /etc/nginx/sites-available/www-nutraxen-com.conf
-ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-available/www-nutraxen-com.conf
-rm /etc/nginx/sites-enabled/www-nutraxen-com.conf
-ln -s  /usr/share/nginx/vhosts/www-nutraxen-com.conf /etc/nginx/sites-enabled/www-nutraxen-com.conf
+echo "-- Sites Enabled > NUTRAXEN.com"
+rm /etc/nginx/sites-available/nutraxen.conf
+ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-available/nutraxen.conf
+rm /etc/nginx/sites-enabled/nutraxen.conf
+ln -s  /usr/share/nginx/vhosts/nutraxen.conf /etc/nginx/sites-enabled/nutraxen.conf
 
+# Symlink for NutraXen.com
+echo ""
+echo "-- Sites Enabled > DECALICIOUS.com"
+rm /etc/nginx/sites-available/decalicious.conf
+ln -s  /usr/share/nginx/vhosts/decalicious.conf /etc/nginx/sites-available/decalicious.conf
+rm /etc/nginx/sites-enabled/decalicious.conf
+ln -s  /usr/share/nginx/vhosts/decalicious.conf /etc/nginx/sites-enabled/decalicious.conf
 
 
 
