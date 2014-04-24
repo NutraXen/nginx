@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# TODO ! IMPORANT (UPDATE NGINX VERSION FROM 1.4 to 1.6)
+
+
 # INSPIRED BY:
 # https://github.com/evansims/scripts/blob/master/build-scripts/ubuntu12.04/nginx-pagespeed.sh
 
@@ -246,6 +250,7 @@ echo ""
 cp nginx.custom.conf nginx.custom.backup-from-install
 
 #GET MIME TYPES
+echo ""
 echo "-- Copying Custom Mime Types (mime.types)  previous version saved as (mime.types.old)"
 cp /etc/nginx/mime.types /etc/nginx/mime.types.old
 rm /etc/nginx/mime.types
