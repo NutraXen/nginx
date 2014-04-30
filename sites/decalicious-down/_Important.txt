@@ -1,0 +1,5 @@
+This script relies on the notify-error.php file to be hosted on a different server.
+We use AWS to host a micro instance which redirects non www requests to www.decalicious.com
+On that server we have a custom .htaccess file / notify-error.php file to handle this problem.
+
+These items are located at C:\www\Decalicious\_LINUX\AWS - APACHE SERVER (Naked Redirects)\Decalicious-Redirect
