@@ -1,0 +1,135 @@
+html {
+    height: 100%;
+    font-family: Roboto,sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
+    display: block;
+}
+
+a {
+    background: 0 0;
+}
+
+a:active,a:hover {
+    outline: 0;
+}
+
+body {
+    background: #3c1655;
+    color: #3c1655;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+#CENTER {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    top: 50%;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: -105px;
+}
+
+#IMG {
+    display: none;
+}
+
+body {
+    color: #efefef;
+    background: #3c1655 url(noise.png) repeat;
+    font-weight: 400;
+}
+
+#IMG {
+    opacity: 0;
+    width: 200px;
+    border: 0;
+    margin-top: -10000px;
+}
+
+#CENTER {
+    text-align: center;
+    background: url(d.png) top center no-repeat;
+}
+
+#FOOTER {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 30px;
+    background-color: rgba(0,0,0,.25);
+    border-top: 2px solid rgba(0,0,0,.55);
+}
+
+#LIKE {
+    position: absolute;
+    left: 27px;
+    top: 27px;
+}
+
+h2 {
+    color: #efefef;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.bb {
+    color: #9ea6cd;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.bl {
+    color: #f4d7f7;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+@media only screen and (max-width:720px) {
+    #CENTER {
+        background-size: contain;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .bb,.bl {
+        display: none;
+    }
+}
+
+#FOOTER {
+    opacity: 0;
+}
+
+#MIDDLE {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 0%;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: -205px;
+}
+
+.sh {
+    position: relative;
+    width: 550px;
+    height: 350px;
+    background: #FFF;
+    margin: 3px auto;
+    border: 1px solid rgba(0,0,0,.95);
+    border-radius: 60px;
+    background-color: #191919;
+    background-repeat: none;
+    background-size: cover;
+}
