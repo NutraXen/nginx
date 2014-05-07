@@ -6,11 +6,10 @@ echo "  1 - Git Pulled New Files"
 echo "*************************"
 
 rm -rf /usr/share/nginx/cache*
-/etc/init.d/nginx reload
 cd /var/log/nginx
 rm r *
 echo "*************************"
-echo "  2 - Clearned Nginx Cache"
+echo "  2 - Clearned Nginx Cache & LOGS"
 echo "*************************"
 
 cd /etc/nginx/
@@ -20,9 +19,11 @@ echo "***********************************************"
 echo "  3 - Reloaded Nginx.custom.conf from repo"
 echo "***********************************************"
 
-
-
 cd /XEN-TOOLS/GIT-PULL-HERE 
+
+/etc/init.d/nginx reload
+service nginx restart
+
 echo ""
 echo "DONE "
 echo ""
