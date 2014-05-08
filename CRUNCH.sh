@@ -5,7 +5,8 @@ echo "*************************"
 echo "  1 - Git Pulled New Files"
 echo "*************************"
 
-rm -rf /usr/share/nginx/cache*
+cd /usr/share/nginx/cache
+rm -r *
 cd /var/log/nginx
 rm r *
 echo "*************************"
