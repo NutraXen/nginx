@@ -1,7 +1,7 @@
 Nginx Server As Reverse Proxy For IIS
 =====================================
 
-<h2>Download, Build & Install NginX custom: <br>Azure / Aws Servers</h2>
+<h2>Download, Build & Install NginX 1.6 custom: <br>Azure / Aws Servers</h2>
 <ul>
 	<li>Creates /XEN-TOOLS/ director at root of server</li>
 	<li>Creates custom install of nginx</li>
@@ -13,7 +13,7 @@ Nginx Server As Reverse Proxy For IIS
 	<li>Fresh install Ubuntu 12.04 on Azure Server</li>
 	<li>Become Root by typing: sudo su </li>
 	<li>Move to temp directory: cd /tmp </li>
-	<li>Download installer script: wget https://raw.github.com/NutraXen/nginx/master/bash/install-nginx-custom.sh</li>
+	<li>Download installer script: wget wget https://raw.githubusercontent.com/NutraXen/nginx/master/bash/install-nginx-custom.sh</li>
 	<li>Begin Installer: sudo bash install-nginx-custom.sh</li>
 </ul>
 

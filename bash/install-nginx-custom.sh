@@ -6,7 +6,7 @@
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
-# wget https://github.com/NutraXen/nginx/master/bash/install-nginx-custom.sh
+# wget https://raw.githubusercontent.com/NutraXen/nginx/master/bash/install-nginx-custom.sh
 # sudo bash install-nginx-custom.sh
 
 
