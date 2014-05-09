@@ -14,7 +14,10 @@
 sudo rm -f -R /usr/share/nginx && rm -f /usr/sbin/nginx
 sudo rm /etc/init.d/nginx
 sudo rm -f -R /etc/nginx
-rm /XEN-TOOLS/GIT-PULL-HERE
+rm -r /XEN-TOOLS/GIT-PULL-HERE
+rm -r /var/log/nginx
+rm -r /var/lib/nginx
+rm -r /var/cache/nginx
 
 # Customize your build flags here.
 export CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse"
@@ -82,7 +85,7 @@ git clone https://github.com/NutraXen/headers-more-nginx-module
 
 # Grab the uptsream fair module.
 rm -r nginx-upstream-fair
-git clone https://github.com/NutraXen/nginx-upstream-fair
+#git clone https://github.com/NutraXen/nginx-upstream-fair
 
 # Grab the Upstream Module
 rm -r nginx_upstream_check_module
@@ -94,31 +97,23 @@ git clone https://github.com/NutraXen/ngx_http_substitutions_filter_module
 
 
 # Grab libunwind
-rm -r libunwind-0.99-beta
-wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
-tar -xzvf libunwind-0.99-beta.tar.gz
-rm libunwind-0.99-beta.tar.gz
-cd libunwind-0.99-beta
-sudo ./configure CFLAGS="-U_FORTIFY_SOURCE -pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --pkgversion=0.99 --default
+#TEMP#rm -r libunwind-0.99-beta
+#TEMP#wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
+#TEMP#tar -xzvf libunwind-0.99-beta.tar.gz
+#TEMP#rm libunwind-0.99-beta.tar.gz
+#TEMP#cd libunwind-0.99-beta
+#TEMP#sudo ./configure CFLAGS="-U_FORTIFY_SOURCE -pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --pkgversion=0.99 --default
 
 # Grab Google's Performance Tools library.
-cd ~/src
-rm - r gperftools-2.0
-wget https://gperftools.googlecode.com/files/gperftools-2.0.tar.gz
-tar -xzvf gperftools-2.0.tar.gz
-rm gperftools-2.0.tar.gz
-cd gperftools-2.0
-sudo ./configure CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --default
+#TEMP#cd ~/src
+#TEMP#rm - r gperftools-2.0
+#TEMP#wget https://gperftools.googlecode.com/files/gperftools-2.0.tar.gz
+#TEMP#tar -xzvf gperftools-2.0.tar.gz
+#TEMP#rm gperftools-2.0.tar.gz
+#TEMP#cd gperftools-2.0
+#TEMP#sudo ./configure CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --default
 
-# Grab Google's Pagespeed module.
-#cd ~/src
-#wget https://github.com/pagespeed/ngx_pagespeed/archive/release-1.6.29.5-beta.zip
-#unzip release-1.6.29.5-beta.zip
-#rm release-1.6.29.5-beta.zip
-#cd ngx_pagespeed-release-1.6.29.5-beta/
-#wget https://dl.google.com/dl/page-speed/psol/1.6.29.5.tar.gz
-#tar -xzvf 1.6.29.5.tar.gz
-#rm 1.6.29.5.tar.gz
+
 
 
 echo "Downloaded Necessary Nginx Plugins"
@@ -171,7 +166,7 @@ sudo ./configure \
 --without-http_scgi_module \
 --without-http_memcached_module \
 --without-http_empty_gif_module \
---with-http_browser_module \
+--without-http_browser_module \
 --with-google_perftools_module \
 --with-pcre-jit \
 --add-module=$HOME/src/nginx-upload-progress-module \
