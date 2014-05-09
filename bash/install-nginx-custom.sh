@@ -29,9 +29,9 @@ if ! [[ "$CORES" =~ ^[0-9]+$ ]] || [[ "$CORES" -lt 1 ]]; then
 fi
 
 # GET UPDATES 
-echo "Getting System Updates..."
-sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
-sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
+#TEMP#echo "Getting System Updates..."
+#TEMP#sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
+#TEMP#sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
 
@@ -39,6 +39,7 @@ sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev lib
 
 #/backup firewall/
 cd /
+rm -r XEN-TOOLS
 mkdir XEN-TOOLS
 cd XEN-TOOLS
 mkdir BASH-SCRIPTS
@@ -53,10 +54,10 @@ cd /XEN-TOOLS
 mkdir SSL-BACKUPS
 
 
-sudo apt-get update
-sudo apt-get -y install zip
-sudo apt-get -y install build-essential libxml2-dev libfuse-dev libcurl4-openssl-dev
-sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
+#TEMP#sudo apt-get update
+#TEMP#sudo apt-get -y install zip
+#TEMP#sudo apt-get -y install build-essential libxml2-dev libfuse-dev libcurl4-openssl-dev
+#TEMP#sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
 echo ""
@@ -85,7 +86,7 @@ git clone https://github.com/NutraXen/headers-more-nginx-module
 
 # Grab the uptsream fair module.
 rm -r nginx-upstream-fair
-#git clone https://github.com/NutraXen/nginx-upstream-fair
+git clone https://github.com/NutraXen/nginx-upstream-fair
 
 # Grab the Upstream Module
 rm -r nginx_upstream_check_module
@@ -133,8 +134,13 @@ tar -xzvf nginx-1.6.0.tar.gz
 rm nginx-1.6.0.tar.gz
 cd nginx-1.6.0
 
+# Get New Patch (Suppose to work with 1.5.12)
+wget https://raw.githubusercontent.com/NutraXen/patches/master/nginx_upstream_check_module/check_1.5.12.patch
+
+
 # REQUIRED PATCH FOR UPSTREAM 
-sudo patch -p1 < ~/src/nginx_upstream_check_module/check_1.2.6+.patch
+#sudo patch -p1 < ~/src/nginx_upstream_check_module/check_1.2.6+.patch
+sudo patch -p1 < ~/src/nginx_upstream_check_module/check_1.5.12.patch
 
 sudo ./configure \
 --prefix=/usr/share/nginx \
@@ -169,7 +175,6 @@ sudo ./configure \
 --without-http_browser_module \
 --with-google_perftools_module \
 --with-pcre-jit \
---add-module=$HOME/src/nginx-upload-progress-module \
 --add-module=$HOME/src/headers-more-nginx-module/ \
 --add-module=$HOME/src/ngx_http_substitutions_filter_module/ \
 --add-module=$HOME/src/nginx_upstream_check_module/ && sudo make && sudo checkinstall --default
