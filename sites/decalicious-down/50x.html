@@ -73,7 +73,7 @@ $(function() {
   if(typeof $.cookie('engx5') == "undefined") {
       $.cookie('engx5', 'x', {expires:1, path: '/'});
       var emsg = "NGINX: 50x.html (SERVER ERROR 500) '\n' URL:" + window.location.href + "'\n' REF:" + document.referrer  + "'\n'  BROWSER:" + navigator.userAgent.toLowerCase(); 
-      $.ajax({url: "http://decalicious.com/notify-error.php?msg="+emsg,type:'GET',data:''});      
+      $.ajax({url: "https://decalicious.com/notify-error.php?msg="+emsg,type:'GET',data:''});      
   }
 });
 </script>

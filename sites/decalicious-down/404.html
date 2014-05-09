@@ -75,7 +75,7 @@ $(function() {
   if(typeof $.cookie('engx4') == "undefined") {
       $.cookie('engx4', 't', {expires:1, path: '/'});
       var emsg = "NGINX 404.html PAGE NOT FOUND '\n' URL:" + window.location.href + "'\n' REF:" + document.referrer  + "'\n'  BROWSER:" + navigator.userAgent.toLowerCase(); 
-      $.ajax({url: "http://decalicious.com/notify-error.php?msg="+emsg,type:'GET',data:''});     
+      $.ajax({url: "https://decalicious.com/notify-error.php?msg="+emsg,type:'GET',data:''});     
   }
 });
 </script>
