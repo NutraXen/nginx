@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# TODO AFTER INSTALL
-# INSTALL PHP (FAST CGI)
-# INSTALL MYSQL
+# TODO ! IMPORANT (UPDATE NGINX VERSION FROM 1.4 to 1.6)
+
+
+# INSPIRED BY:
+# https://github.com/evansims/scripts/blob/master/build-scripts/ubuntu12.04/nginx-pagespeed.sh
+
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
@@ -10,11 +13,7 @@
 # sudo bash install-nginx-custom.sh
 
 
-#Remove Existing NGINX Cust in case it exists. 
-sudo rm -f -R /usr/share/nginx && rm -f /usr/sbin/nginx
-sudo rm /etc/init.d/nginx
-sudo rm -f -R /etc/nginx
-rm /XEN-TOOLS/GIT-PULL-HERE
+
 
 # Customize your build flags here.
 export CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse"
@@ -26,10 +25,12 @@ if ! [[ "$CORES" =~ ^[0-9]+$ ]] || [[ "$CORES" -lt 1 ]]; then
 fi
 
 # GET UPDATES 
-echo "Getting System Updates..."
 sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
 sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
+# TODO:
+# INSTALL PHP
+# INSTALL MYSQL
 
 
 
@@ -73,28 +74,22 @@ mkdir ~/src
 
 # Grab upload progress module.
 cd ~/src
-rm -r nginx-upload-progress-module
-git clone https://github.com/NutraXen/nginx-upload-progress-module
+git clone https://github.com/masterzen/nginx-upload-progress-module
 
 # Grab more-headers module.
-rm -r headers-more-nginx-module
-git clone https://github.com/NutraXen/headers-more-nginx-module
+git clone https://github.com/agentzh/headers-more-nginx-module
 
 # Grab the uptsream fair module.
-rm -r nginx-upstream-fair
-git clone https://github.com/NutraXen/nginx-upstream-fair
+git clone https://github.com/gnosek/nginx-upstream-fair
 
 # Grab the Upstream Module
-rm -r nginx_upstream_check_module
-git clone https://github.com/NutraXen/nginx_upstream_check_module
+git clone https://github.com/yaoweibin/nginx_upstream_check_module
 
 # Grab NginX Substitutions Module
-rm -r ngx_http_substitutions_filter_module
-git clone https://github.com/NutraXen/ngx_http_substitutions_filter_module
+git clone https://github.com/yaoweibin/ngx_http_substitutions_filter_module
 
 
 # Grab libunwind
-rm -r libunwind-0.99-beta
 wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
 tar -xzvf libunwind-0.99-beta.tar.gz
 rm libunwind-0.99-beta.tar.gz
@@ -103,7 +98,6 @@ sudo ./configure CFLAGS="-U_FORTIFY_SOURCE -pipe -march=nocona -mtune=i686 -O2 -
 
 # Grab Google's Performance Tools library.
 cd ~/src
-rm - r gperftools-2.0
 wget https://gperftools.googlecode.com/files/gperftools-2.0.tar.gz
 tar -xzvf gperftools-2.0.tar.gz
 rm gperftools-2.0.tar.gz
@@ -133,10 +127,10 @@ echo ""
 
 # Compile Nginx.
 cd ~/src
-wget http://nginx.org/download/nginx-1.6.0.tar.gz
-tar -xzvf nginx-1.6.0.tar.gz
-rm nginx-1.6.0.tar.gz
-cd nginx-1.6.0
+wget http://nginx.org/download/nginx-1.4.2.tar.gz
+tar -xzvf nginx-1.4.2.tar.gz
+rm nginx-1.4.2.tar.gz
+cd nginx-1.4.2
 
 # REQUIRED PATCH FOR UPSTREAM 
 sudo patch -p1 < ~/src/nginx_upstream_check_module/check_1.2.6+.patch
@@ -171,7 +165,7 @@ sudo ./configure \
 --without-http_scgi_module \
 --without-http_memcached_module \
 --without-http_empty_gif_module \
---with-http_browser_module \
+--without-http_browser_module \
 --with-google_perftools_module \
 --with-pcre-jit \
 --add-module=$HOME/src/nginx-upload-progress-module \
@@ -186,7 +180,7 @@ sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.custom.conf
 sudo sed -i "s/worker_processes  1;/worker_processes $CORES;/" /etc/nginx/nginx.custom.conf
 
 # Install init.d script
-sudo wget https://raw.github.com/NutraXen/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
 sudo chmod +x /etc/init.d/nginx
 sudo sed -i 's/DAEMON=\/usr\/local\/nginx\/sbin\/nginx/DAEMON=\/usr\/sbin\/nginx/' /etc/init.d/nginx
 sudo sed -i 's/lockfile=\/var\/lock\/subsys\/nginx/lockfile=\/var\/lock\/nginx.lock/' /etc/init.d/nginx
