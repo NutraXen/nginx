@@ -2,4 +2,5 @@ Follow This Gist.
 cd /usr/share/nginx/ssl-certs
 openssl req -nodes -newkey rsa:2048 -keyout decalicious_com.key -out decalicious_com.csr
 
-Password Protected  O******!
+Pass NutraXen       O*******a
+Pass Decalicious    O*******a!
