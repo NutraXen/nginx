@@ -29,9 +29,9 @@ if ! [[ "$CORES" =~ ^[0-9]+$ ]] || [[ "$CORES" -lt 1 ]]; then
 fi
 
 # GET UPDATES 
-#TEMP#echo "Getting System Updates..."
-#TEMP#sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
-#TEMP#sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
+echo "Getting System Updates..."
+sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
+sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
 
@@ -54,10 +54,10 @@ cd /XEN-TOOLS
 mkdir SSL-BACKUPS
 
 
-#TEMP#sudo apt-get update
-#TEMP#sudo apt-get -y install zip
-#TEMP#sudo apt-get -y install build-essential libxml2-dev libfuse-dev libcurl4-openssl-dev
-#TEMP#sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
+sudo apt-get update
+sudo apt-get -y install zip
+sudo apt-get -y install build-essential libxml2-dev libfuse-dev libcurl4-openssl-dev
+sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
 echo ""
@@ -98,21 +98,21 @@ git clone https://github.com/NutraXen/ngx_http_substitutions_filter_module
 
 
 # Grab libunwind
-#TEMP#rm -r libunwind-0.99-beta
-#TEMP#wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
-#TEMP#tar -xzvf libunwind-0.99-beta.tar.gz
-#TEMP#rm libunwind-0.99-beta.tar.gz
-#TEMP#cd libunwind-0.99-beta
-#TEMP#sudo ./configure CFLAGS="-U_FORTIFY_SOURCE -pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --pkgversion=0.99 --default
+rm -r libunwind-0.99-beta
+wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
+tar -xzvf libunwind-0.99-beta.tar.gz
+rm libunwind-0.99-beta.tar.gz
+cd libunwind-0.99-beta
+sudo ./configure CFLAGS="-U_FORTIFY_SOURCE -pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --pkgversion=0.99 --default
 
 # Grab Google's Performance Tools library.
-#TEMP#cd ~/src
-#TEMP#rm - r gperftools-2.0
-#TEMP#wget https://gperftools.googlecode.com/files/gperftools-2.0.tar.gz
-#TEMP#tar -xzvf gperftools-2.0.tar.gz
-#TEMP#rm gperftools-2.0.tar.gz
-#TEMP#cd gperftools-2.0
-#TEMP#sudo ./configure CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --default
+cd ~/src
+rm - r gperftools-2.0
+wget https://gperftools.googlecode.com/files/gperftools-2.0.tar.gz
+tar -xzvf gperftools-2.0.tar.gz
+rm gperftools-2.0.tar.gz
+cd gperftools-2.0
+sudo ./configure CFLAGS="-pipe -march=nocona -mtune=i686 -O2 -msse -mmmx -msse2 -msse3 -mfpmath=sse" && sudo make && sudo checkinstall --default
 
 
 
