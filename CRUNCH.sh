@@ -14,7 +14,9 @@ sudo mkdir /usr/share/nginx/cache/d
 sudo mkdir /usr/share/nginx/cache/e
 
 cd /var/log/nginx
+touch /var/log/nginx/junk.txt
 rm r *
+touch /var/log/nginx/hello.txt
 echo "*************************"
 echo "  2 - Clearned Nginx Cache & LOGS"
 echo "*************************"
