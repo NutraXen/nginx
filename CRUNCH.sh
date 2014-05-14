@@ -7,6 +7,12 @@ echo "*************************"
 
 cd /usr/share/nginx/cache
 rm -r *
+sudo mkdir /usr/share/nginx/cache/a
+sudo mkdir /usr/share/nginx/cache/b
+sudo mkdir /usr/share/nginx/cache/c
+sudo mkdir /usr/share/nginx/cache/d
+sudo mkdir /usr/share/nginx/cache/e
+
 cd /var/log/nginx
 rm r *
 echo "*************************"
