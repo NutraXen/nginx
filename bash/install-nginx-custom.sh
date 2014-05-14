@@ -36,14 +36,12 @@ sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev lib
 
 # INSTALL LUA
 echo "Installing LUA programming Language"
-sudo apt-get install lua5.2
-echo ""
-sudo apt-get install luarocks
+sudo apt-get install -y lua5.1 liblua5.1-0 liblua5.1-0-dev luarocks
 echo ""
 luarocks install lua-cjson
 echo "Lua Installed with Lua-Cjson"
 echo ""
-
+ln -s /usr/lib/x86_64-linux-gnu/liblua5.1.so /usr/lib/liblua.so
 
 #/backup firewall/
 cd /
@@ -104,6 +102,17 @@ git clone https://github.com/NutraXen/nginx_upstream_check_module
 rm -r ngx_http_substitutions_filter_module
 git clone https://github.com/NutraXen/ngx_http_substitutions_filter_module
 
+# Grab Nginx Devel Kit
+rm -r ngx_devel_kit
+git clone https://github.com/NutraXen/ngx_devel_kit
+
+# Grab Nginx LUA Module
+rm -r lua-nginx-module
+git clone https://github.com/NutraXen/lua-nginx-module
+
+# Grab Nginx Echo
+rm -r echo-nginx-module
+git clone https://github.com/NutraXen/echo-nginx-module
 
 # Grab libunwind
 rm -r libunwind-0.99-beta
@@ -172,17 +181,20 @@ sudo ./configure \
 --with-http_realip_module \
 --with-http_mp4_module \
 --with-http_gunzip_module \
---without-http_ssi_module \
---without-http_userid_module \
---without-http_geo_module \
---without-http_referer_module \
---without-http_uwsgi_module \
---without-http_scgi_module \
---without-http_memcached_module \
---without-http_empty_gif_module \
---without-http_browser_module \
+--with-http_geo_module \
+--with-http_referer_module \
+--with-http_memcached_module \
+--with-http_browser_module \
 --with-google_perftools_module \
 --with-pcre-jit \
+--without-http_empty_gif_module \
+--without-http_uwsgi_module \
+--without-http_scgi_module \
+--without-http_ssi_module \
+--without-http_userid_module \
+--add-module=$HOME/src/echo-nginx-module/ \
+--add-module=$HOME/src/ngx_devel_kit/ \
+--add-module=$HOME/src/lua-nginx-module/ \
 --add-module=$HOME/src/headers-more-nginx-module/ \
 --add-module=$HOME/src/ngx_http_substitutions_filter_module/ \
 --add-module=$HOME/src/nginx_upstream_check_module/ && sudo make && sudo checkinstall --default
