@@ -144,6 +144,10 @@ echo ""
 echo ""
 
 
+# Get New Patch (Suppose to work with 1.5.12)
+cd ~/src/nginx_upstream_check_module/
+wget https://raw.githubusercontent.com/NutraXen/patches/master/nginx_upstream_check_module/check_1.5.12.patch
+
 # Compile Nginx.
 cd ~/src
 wget http://nginx.org/download/nginx-1.6.0.tar.gz
@@ -151,8 +155,6 @@ tar -xzvf nginx-1.6.0.tar.gz
 rm nginx-1.6.0.tar.gz
 cd nginx-1.6.0
 
-# Get New Patch (Suppose to work with 1.5.12)
-wget https://raw.githubusercontent.com/NutraXen/patches/master/nginx_upstream_check_module/check_1.5.12.patch
 
 
 # REQUIRED PATCH FOR UPSTREAM 
@@ -181,7 +183,7 @@ sudo ./configure \
 --with-http_realip_module \
 --with-http_mp4_module \
 --with-http_gunzip_module \
---with-http_geo_module \
+--with-http_geoip_module \
 --with-http_referer_module \
 --with-http_memcached_module \
 --with-http_browser_module \
@@ -198,6 +200,11 @@ sudo ./configure \
 --add-module=$HOME/src/headers-more-nginx-module/ \
 --add-module=$HOME/src/ngx_http_substitutions_filter_module/ \
 --add-module=$HOME/src/nginx_upstream_check_module/ && sudo make && sudo checkinstall --default
+
+
+
+
+
 
 sudo /sbin/ldconfig
 
