@@ -6,7 +6,7 @@
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
-# wget https://raw.githubusercontent.com/NutraXen/nginx/master/bash/install-nginx-custom.sh
+# wget https://raw.githubusercontent.com/NutraXen/nginx/master/bash/upgrade-nginx.sh
 # sudo bash install-nginx-custom.sh
 
 
@@ -391,3 +391,4 @@ echo "IMPORTANT!!!!"
 echo "- Please configure SSL Certificates As Required:"
 # Remove this bash script if loaded from tmp directory
 rm /tmp/install-nginx-custom.sh
+rm /tmp/upgrade-nginx.sh
