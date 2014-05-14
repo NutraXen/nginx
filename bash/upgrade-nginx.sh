@@ -34,6 +34,17 @@ fi
 #TEMP#sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
+# INSTALL LUA
+#TEMP#echo echo "Installing LUA programming Language"
+#TEMP#echo sudo apt-get install lua5.2
+#TEMP#echo echo ""
+#TEMP#echo sudo apt-get install luarocks
+#TEMP#echo echo ""
+#TEMP#echo luarocks install lua-cjson
+#TEMP#echo echo "Lua Installed with Lua-Cjson"
+#TEMP#echo echo ""
+
+
 
 
 
@@ -241,6 +252,10 @@ rm -r /usr/share/nginx/
 git clone https://github.com/NutraXen/nginx.git
 echo "Cloned Git Repo - NGINX"
 echo ""
+
+
+# Unzip GEO IP Database...
+
 
 
 # Replace Nginx Config with the one from our git repo (nginx\etc-config\nginx.custom.conf)

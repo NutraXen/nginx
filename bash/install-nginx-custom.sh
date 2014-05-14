@@ -34,7 +34,15 @@ sudo apt-get update && sudo apt-get autoremove && sudo apt-get autoclean
 sudo apt-get -y install htop unzip git build-essential libpcre3 libpcre3-dev libssl-dev checkinstall automake
 
 
-
+# INSTALL LUA
+echo "Installing LUA programming Language"
+sudo apt-get install lua5.2
+echo ""
+sudo apt-get install luarocks
+echo ""
+luarocks install lua-cjson
+echo "Lua Installed with Lua-Cjson"
+echo ""
 
 
 #/backup firewall/
@@ -241,6 +249,9 @@ rm -r /usr/share/nginx/
 git clone https://github.com/NutraXen/nginx.git
 echo "Cloned Git Repo - NGINX"
 echo ""
+
+
+
 
 
 # Replace Nginx Config with the one from our git repo (nginx\etc-config\nginx.custom.conf)
