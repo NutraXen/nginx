@@ -43,6 +43,10 @@ echo "Lua Installed with Lua-Cjson"
 echo ""
 ln -s /usr/lib/x86_64-linux-gnu/liblua5.1.so /usr/lib/liblua.so
 
+
+# INSTALL GEOIP 
+apt-get install -y libgeoip-dev
+
 #/backup firewall/
 cd /
 rm -r XEN-TOOLS
@@ -184,9 +188,9 @@ sudo ./configure \
 --with-http_mp4_module \
 --with-http_gunzip_module \
 --with-http_geoip_module \
---with-http_referer_module \
---with-http_memcached_module \
---with-http_browser_module \
+--without-http_referer_module \
+--without-http_memcached_module \
+--without-http_browser_module \
 --with-google_perftools_module \
 --with-pcre-jit \
 --without-http_empty_gif_module \
