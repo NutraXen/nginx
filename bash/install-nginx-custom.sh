@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # TODO AFTER INSTALL
-# INSTALL PHP (FAST CGI)
+# CONFIGURE PHP (FAST CGI)
 # INSTALL MYSQL
+
 
 # QUICK INSTALL INSTRUCTIONS:
 # cd /tmp
@@ -405,6 +406,8 @@ cd /XEN-TOOLS/NGINX/VHOSTS
 
 echo "IMPORTANT!!!!"
 echo "- Please configure SSL Certificates As Required:"
+
+
 # Remove this bash script if loaded from tmp directory
 rm /tmp/install-nginx-custom.sh
 rm /tmp/upgrade-nginx.sh
