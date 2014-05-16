@@ -367,11 +367,31 @@ ln -s /usr/share/nginx /XEN-TOOLS/GIT-PULL-HERE
 apt-get -y install php5-fpm php5-cli
 
 
+# UPDATE SECURITY LIMITS
+echo "Updating Security Limits Files"
+cd /etc/security
+cp limits.conf limits.conf.old
+rm limits.conf
+cp /usr/share/nginx/etc-config/security.limits.conf /etc/security/limits.conf
+echo "Security Limits Updated.."
+echo ""
 
-# TODO CACHES
 
+# UPDATE TCP STACK 
+echo "Updating TCP STACK"
+cd /etc
+cp sysctl.conf sysctl.conf.old
+rm sysctl.conf
+cp /usr/share/nginx/etc-config/sysctl.conf /etc/sysctl.conf
+echo "TCP STACK TUNED"
+echo ""
+/sbin/sysctl -p
 echo ""
 echo ""
+
+
+
+# START NGINX
 echo "Starting Nginx"
 sudo /etc/init.d/nginx reload
 sudo service nginx restart
@@ -387,3 +407,4 @@ echo "IMPORTANT!!!!"
 echo "- Please configure SSL Certificates As Required:"
 # Remove this bash script if loaded from tmp directory
 rm /tmp/install-nginx-custom.sh
+rm /tmp/upgrade-nginx.sh
